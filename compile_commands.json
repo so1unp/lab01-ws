@@ -1,0 +1,56 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Wshadow",
+      "-Wconversion",
+      "-Wunreachable-code",
+      "-o",
+      "bin/decrypt",
+      "decrypt.c"
+    ],
+    "directory": "/home/rocio/laboLenguajes/laboSistemas/tp1/lab01-ws",
+    "file": "/home/rocio/laboLenguajes/laboSistemas/tp1/lab01-ws/decrypt.c",
+    "output": "/home/rocio/laboLenguajes/laboSistemas/tp1/lab01-ws/bin/decrypt"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Wshadow",
+      "-Wconversion",
+      "-Wunreachable-code",
+      "-o",
+      "bin/democ",
+      "democ.c"
+    ],
+    "directory": "/home/rocio/laboLenguajes/laboSistemas/tp1/lab01-ws",
+    "file": "/home/rocio/laboLenguajes/laboSistemas/tp1/lab01-ws/democ.c",
+    "output": "/home/rocio/laboLenguajes/laboSistemas/tp1/lab01-ws/bin/democ"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Wshadow",
+      "-Wconversion",
+      "-Wunreachable-code",
+      "-o",
+      "bin/encrypt",
+      "encrypt.c"
+    ],
+    "directory": "/home/rocio/laboLenguajes/laboSistemas/tp1/lab01-ws",
+    "file": "/home/rocio/laboLenguajes/laboSistemas/tp1/lab01-ws/encrypt.c",
+    "output": "/home/rocio/laboLenguajes/laboSistemas/tp1/lab01-ws/bin/encrypt"
+  }
+]
