@@ -1,24 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <unistd.h>
 
 int main(int argc, char *argv[]) {
-  (void)argc;
+  unsigned char caracteres[8]; // array para almacenar los 8 bytes del mensaje cifrado (unsigned porque guardara valores positivos)
 
-  size_t inicio = 7;
-  char *linea = argv[1];
-  size_t largo = strlen(linea);
-  int j = 0;
-  size_t largoResultado = (largo / 8) + 2;
-
-  char *result = malloc(largoResultado * sizeof(char));
-
-  printf("recibido: %s\n", linea);
-  for (size_t i = inicio; i < largo; i += 8) {
-    printf("%c", linea[i]);
-    result[j] = linea[i];
-    j++;
+  // Leé de a 8 bytes desde la entrada mientras haya datos disponibles
+  while (read(STDOUT_FILENO, caracteres, 8) > 0){
+    
+    /*condicional para verificar que se han leído 8 bytes correctamente
+      el write en la salida estandar (STDOUT_FILENO), ignorara los 7 bytes y solo escribira el ultimo bytes [8]
+    */
+     if (write(STDOUT_FILENO, &caracteres[7], 1) < 0){
+      perror("Error en write"); // manejo de errores en caso de que write falle
+      return 1;
+    }
+    
   }
-  printf("resultado: %s\n", result);
+  
+
   exit(EXIT_SUCCESS);
 }
