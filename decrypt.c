@@ -1,29 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
+int main(int argc, char *argv[]) {
+  (void)argc;
+  char buf[100];
+  size_t inicio = 7;
+  ssize_t n = read(0, buf, sizeof(buf));
+  buf[n] = '\0'; 
+  char *linea = buf;
 
-int main(int argc, char *argv[])
-{
-    // Agregar código aquí.
-    int clave = 3; // Clave de cifrado
+ 
+  size_t largo = strlen(linea);
+  int j = 0;
+  size_t largoResultado = (largo / 8) + 1;
 
-    char linea[100];
+  char *result = malloc(largoResultado * sizeof(char));
 
-    printf("Escribi algo: ");
-    if (fgets(linea, sizeof(linea), stdin) != NULL) {
-        printf("Leido: %s", linea);
-    }
-    
-    char resultado = linea[0]; // Inicializar resultado con el primer carácter de la línea
-     for (int i = 0; i < strlen(resultado); i++)
-     {
-            //resultado += resultado[i*clave + (i+1)];
-        
-     }
-        printf("El resultado es: %s\n", resultado);
-     
-
-
-    // Termina la ejecución del programa.
-    exit(EXIT_SUCCESS);
+  printf("recibido: %s\n", linea);
+  for (size_t i = inicio; i < largo; i += 8) {
+    printf("%c", linea[i]);
+    result[j] = linea[i];
+    j++;
+  }
+  result[j+1] = '\0'; 
+  printf("resultado: %s\n", result);
+  exit(EXIT_SUCCESS);
 }
