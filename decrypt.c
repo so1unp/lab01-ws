@@ -6,7 +6,7 @@
 int main(int argc, char *argv[]) {
   (void)argc;
   char buf[100];
-  size_t inicio = 7;
+  size_t inicio = 8;
   ssize_t n = read(0, buf, sizeof(buf));
   buf[n] = '\0'; 
   char *linea = buf;
