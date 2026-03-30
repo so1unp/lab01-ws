@@ -25,6 +25,7 @@ int main(int argc, char *argv[]) {
     j++;
   }
   result[j] = '\0';    
-   write(1, &linea,largoResultado);
+   write(1, result,j);
+   write(1, "\n", 1);
   exit(EXIT_SUCCESS);
 }
