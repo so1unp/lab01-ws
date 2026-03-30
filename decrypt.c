@@ -20,11 +20,11 @@ int main(int argc, char *argv[]) {
 
   printf("recibido: %s\n", linea);
   for (size_t i = inicio; i < largo; i += 8) {
-    printf("%c", linea[i]);
+    write(1, &linea[i],1);
     result[j] = linea[i];
     j++;
   }
-  result[j+1] = '\0'; 
-  printf("resultado: %s\n", result);
+  result[j] = '\0';    
+   write(1, &linea,largoResultado);
   exit(EXIT_SUCCESS);
 }
