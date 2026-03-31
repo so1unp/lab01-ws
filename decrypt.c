@@ -4,7 +4,7 @@
 #include <unistd.h>
 
 int main(void) {
-  char buf[100];
+  char buf[4096];
   size_t inicio = 7;
   ssize_t n = read(0, buf, sizeof(buf));
 
