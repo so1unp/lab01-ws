@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h> // Fundamental en Linux para las llamadas read() y write()
+#include <string.h> // Útil para usar strlen() si procesan el argumento
+#include <time.h>   // Para inicializar la semilla de rand()
+
+int main(int argc, char *argv[])
+{
+    // 1. Inicializar la semilla para los números aleatorios.
+    // Se suele usar la hora actual para que la secuencia siempre sea distinta.
+    srand(time(NULL));
+    int random;
+    unsigned char buffer[8];
+
+    // 2. Evaluar de dónde viene el mensaje usando 'argc'
+    if (argc > 1) {
+        // CASO A: El mensaje viene como argumento (ej: bin/encrypt "hola")
+        // El texto a encriptar está guardado en el arreglo argv[1].
+        for (int i=0 ; argv[1][i]!=0 ; i++){
+            
+            for (int j=0 ; j<7 ; j++){
+               random=rand()
+               buffer[i] = Convert.ToChar(random);
+               // si no anda intenten buffer[i]= (char)random;
+            }
+            buffer[7]= argv[1][i];
+            write(0, buffer , 8);
+        }
+        
+    } else {
+        // CASO B: El mensaje viene por entrada estándar (ej: echo "hola" | bin/encrypt)
+        // No hay argumentos extra, así que leemos de STDIN_FILENO (descriptor 0).
+        
+        
+        }
+
+        // El enunciado pide usar perror() para imprimir errores de llamadas al sistema.
+        if (bytes_leidos == -1) {
+            perror("Error leyendo de la entrada estándar");
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    // Termina la ejecución del programa con éxito.
+    exit(EXIT_SUCCESS);
+}
