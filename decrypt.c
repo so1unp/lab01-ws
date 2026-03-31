@@ -1,19 +1,19 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
-int main(int argc, char *argv[]) {
+int main(void) {
   char buf[100];
   size_t inicio = 7;
   ssize_t n = read(0, buf, sizeof(buf));
 
-
-
   printf("recibido: %s\n", buf);
-  for (size_t i = inicio; i < n; i += 8) {
-    write(1, &buf[i],1);
-  }
 
+  for (size_t i = inicio; i < (size_t)n; i += 8) {
+    write(1, &buf[i], 1);
+  }
+  write(1, "\n", 1);
 
   exit(EXIT_SUCCESS);
 }
