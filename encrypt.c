@@ -12,22 +12,13 @@ int main(int argc, char *argv[])
     ssize_t bytes_leidos;
 
     if (argc > 1) {
-        for (int arg = 1; arg < argc; arg++) {
-            char *msg = argv[arg];
-            for (int j = 0; msg[j] != '\0'; j++) {
-                for (int i = 0; i < 7; i++) {
-                    byte_basura = (char)(rand() % 256);
-                    write(STDOUT_FILENO, &byte_basura , 1);
-                }
-                write(STDOUT_FILENO, &msg[j], 1);
+        char *msg = argv[1];
+        for (int j = 0; msg[j] != '\0'; j++) {
+            for (int i = 0; i < 7; i++) {
+                byte_basura = (char)(rand() % 256);
+                write(STDOUT_FILENO, &byte_basura , 1);
             }
-            if (arg < argc - 1) {
-                for (int i = 0; i < 7; i++) {
-                    byte_basura = (char)(rand() % 256);
-                    write(STDOUT_FILENO, &byte_basura , 1);
-                }
-                write(STDOUT_FILENO, " ", 1);
-            }
+            write(STDOUT_FILENO, &msg[j], 1);
         }
 
 
